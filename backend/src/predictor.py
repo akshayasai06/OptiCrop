@@ -76,11 +76,12 @@ class CropPredictor:
         if self.model is None:
             self._load_model()
             
-        # Reshape for single prediction [1, 7]
-        features_arr = np.array(features).reshape(1, -1)
+        import pandas as pd
+        # Create DataFrame with proper feature names to avoid scikit-learn warnings
+        features_df = pd.DataFrame([features], columns=['N', 'P', 'K', 'temperature', 'humidity', 'ph', 'rainfall'])
         
         # Predict using the loaded pipeline (handles scaling automatically)
-        prediction = self.model.predict(features_arr)
+        prediction = self.model.predict(features_df)
         
         # Some models return array of classes, get the first element
         return str(prediction[0])
@@ -93,14 +94,16 @@ class CropPredictor:
         if self.model is None:
             self._load_model()
             
-        features_arr = np.array(features).reshape(1, -1)
+        import pandas as pd
+        features_df = pd.DataFrame([features], columns=['N', 'P', 'K', 'temperature', 'humidity', 'ph', 'rainfall'])
         
         # If the classifier in pipeline supports predict_proba
         try:
-            probabilities = self.model.predict_proba(features_arr)[0]
+            probabilities = self.model.predict_proba(features_df)[0]
             classes = self.model.classes_
             crop_probs = list(zip(classes, probabilities))
             crop_probs.sort(key=lambda x: x[1], reverse=True)
             return crop_probs
         except AttributeError:
             return None
+
