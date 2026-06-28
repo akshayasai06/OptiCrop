@@ -21,6 +21,7 @@ __pycache__/
 */.ipynb_checkpoints/
 
 # Model Files (Optional: ignore binary pickles if large, but training will generate them)
+models/*.pkl
 backend/models/*.pkl
 
 # OS files

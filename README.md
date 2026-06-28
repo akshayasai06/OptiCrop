@@ -26,27 +26,29 @@ optiCrop/
 ├── .gitignore               # Ignored files (venv, caches, task trackers, model binaries)
 ├── README.md                # Project documentation and guide
 ├── tasks.md                 # Local internship checklist (git-ignored)
-└── backend/
-    ├── app.py               # Main Flask server entrypoint (routes and views)
-    ├── requirements.txt     # Python dependencies
-    ├── data/
-    │   └── Crop_recommendation.csv   # Precision agriculture dataset
-    ├── models/
-    │   └── crop_recommendation_model.pkl # Best trained model pipeline (ignored from Git)
-    ├── notebooks/
-    │   └── OptiCrop_Exploration.ipynb # Jupyter notebook for EDA & comparisons
-    ├── static/
-    │   └── css/
-    │       └── style.css    # Premium glassmorphic styling sheet
-    ├── templates/
-    │   ├── base.html        # Main layouts & Bootstrap 5 inclusion
-    │   ├── index.html       # Responsive input forms for agricultural metrics
-    │   └── result.html      # Prediction output with match likelihood gauges
-    └── src/
-        ├── __init__.py
-        ├── model_training.py # Preprocesses dataset and trains classifiers
-        ├── predictor.py     # Handles validation, model loading, and predictions
-        └── test_system.py   # Unit & integration testing suite
+├── GEMINI.md                # Local guidelines and commands cheatsheet (git-ignored)
+├── app.py                   # Main Flask server entrypoint (routes and views)
+├── requirements.txt         # Python dependencies
+├── data/
+│   └── Crop_recommendation.csv   # Precision agriculture dataset
+├── models/
+│   └── crop_recommendation_model.pkl # Best trained model pipeline (ignored from Git)
+├── notebooks/
+│   └── OptiCrop_Exploration.ipynb # Jupyter notebook for EDA & comparisons
+├── static/                  # Static assets for your teammate to put their files
+│   ├── css/
+│   │   └── style.css        # Premium glassmorphic styling sheet
+│   └── js/
+│       └── main.js          # Custom Javascript scripts
+├── templates/               # HTML templates for dashboards and other pages
+│   ├── base.html            # Main layouts & Bootstrap 5 inclusion
+│   ├── index.html           # Responsive input forms for agricultural metrics
+│   └── result.html          # Prediction output with match likelihood gauges
+└── src/
+    ├── __init__.py
+    ├── model_training.py   # Preprocesses dataset and trains classifiers
+    ├── predictor.py         # Handles validation, model loading, and predictions
+    └── test_system.py       # Unit & integration testing suite
 ```
 
 ---
@@ -57,10 +59,9 @@ Ensure you have **Python 3.10+** installed on your system.
 
 ### 1. Environment Configuration & Installation
 
-From the root directory, navigate into the `backend` folder, set up a virtual environment, and install dependencies:
+From the root directory of the project, set up a virtual environment and install dependencies:
 
 ```bash
-cd backend
 python3 -m venv venv
 source venv/bin/activate  # On Windows use: venv\Scripts\activate
 pip install -r requirements.txt
