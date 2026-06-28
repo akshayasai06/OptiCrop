@@ -1,7 +1,8 @@
-# Smartbridge Virtual Internship - OptiCrop
-# Ignore task tracker
+# Ignore task tracker and agent guidelines
 tasks.md
 task_list.md
+GEMINI.md
+
 
 # Virtual Environment
 venv/
