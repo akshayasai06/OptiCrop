@@ -1,0 +1,27 @@
+# Smartbridge Virtual Internship - OptiCrop
+# Ignore task tracker
+tasks.md
+task_list.md
+
+# Virtual Environment
+venv/
+.venv/
+backend/venv/
+backend/.venv/
+
+# Python caching & bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter Notebooks checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Model Files (Optional: ignore binary pickles if large, but training will generate them)
+backend/models/*.pkl
+
+# OS files
+.DS_Store
+Thumbs.db
