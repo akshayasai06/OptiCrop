@@ -23,16 +23,13 @@ This repository hosts the modular backend code, machine learning model, unit tes
 
 ```text
 optiCrop/
-├── .gitignore               # Ignored files (venv, caches, task trackers, model binaries)
+├── .gitignore               # Version control ignore rules
 ├── README.md                # Project documentation and guide
-├── tasks.md                 # Local internship checklist (git-ignored)
-├── GEMINI.md                # Local guidelines and commands cheatsheet (git-ignored)
 ├── app.py                   # Main Flask server entrypoint (routes and views)
 ├── requirements.txt         # Python dependencies
 ├── data/
 │   └── Crop_recommendation.csv   # Precision agriculture dataset
-├── models/
-│   └── crop_recommendation_model.pkl # Best trained model pipeline (ignored from Git)
+├── models/                  # Directory for saved model pickles (locally trained)
 ├── notebooks/
 │   └── OptiCrop_Exploration.ipynb # Jupyter notebook for EDA & comparisons
 ├── static/                  # Static assets for your teammate to put their files
