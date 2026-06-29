@@ -1,10 +1,14 @@
 # OptiCrop - Smart Agricultural Crop Recommendation System
 
-## Team Details
-*   **JAMPANI AKSHAYA SAI** (Roll No: AP24110011916)
-*   **Om Keerthana Bhavani** (Roll No: AP24110011229)
-*   **Rajan Jaiswal** (Roll No: AP24110011202)
-*   **Sushmanth Chowdary** (Roll No: AP24110011XX)
+<div align="center">
+
+### Team Details
+**JAMPANI AKSHAYA SAI** (Roll No: AP24110011916)  
+**Om Keerthana Bhavani** (Roll No: AP24110011229)  
+**Rajan Jaiswal** (Roll No: AP24110011202)  
+**Sushmanth Chowdary** (Roll No: AP24110011XX)  
+
+</div>
 
 ---
 
