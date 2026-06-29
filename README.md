@@ -21,12 +21,13 @@
 ## Table of Contents
 1. [Project Overview](#project-overview)
 2. [Key Features](#key-features)
-3. [Repository Structure](#repository-structure)
-4. [System Requirements](#system-requirements)
-5. [Setup and Execution Instructions](#setup-and-execution-instructions)
-6. [API Endpoints](#api-endpoints)
-7. [Web Application Interface](#web-application-interface)
-8. [Model Training and Evaluation](#model-training-and-evaluation)
+3. [Technology Stack](#technology-stack)
+4. [Repository Structure](#repository-structure)
+5. [System Requirements](#system-requirements)
+6. [Setup and Execution Instructions](#setup-and-execution-instructions)
+7. [API Endpoints](#api-endpoints)
+8. [Web Application Interface](#web-application-interface)
+9. [Model Training and Evaluation](#model-training-and-evaluation)
 
 ---
 
@@ -46,6 +47,15 @@ This repository hosts the modular backend code, machine learning model, unit tes
     *   **RESTful JSON API**: Allows frontend developers or mobile apps to query recommendations programmatically.
 *   **Extensive Unit Testing**: Validates input bounds, data parsing, and pipeline predictions.
 *   **Jupyter Notebook Integration**: Provides detailed exploration, analysis, and visualization.
+
+---
+
+## Technology Stack
+*   **Backend Framework**: Python 3.14+, Flask (Modular WSGI engine)
+*   **Machine Learning**: Scikit-Learn (Pipeline, StandardScaler, RandomForestClassifier), Pandas, NumPy
+*   **Data Visualization and EDA**: Jupyter Notebooks, Matplotlib, Seaborn
+*   **Frontend and Styling**: HTML5, Vanilla CSS3 (Custom Glassmorphism and UI theme), Bootstrap 5, Font Awesome 6
+*   **Production WSGI Server**: Gunicorn
 
 ---
 
