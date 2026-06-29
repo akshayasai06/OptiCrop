@@ -15,12 +15,24 @@ class CropPredictor:
         self._load_model()
         
     def _load_model(self):
-        """Load the model pipeline from the pickle file."""
+        """Load the model pipeline from the pickle file, with auto-training fallback if missing."""
         if not os.path.exists(self.model_path):
-            raise FileNotFoundError(
-                f"Model file not found at: {self.model_path}. "
-                "Please run model training first to generate it."
-            )
+            print(f"Model file not found at: {self.model_path}. Attempting to train model automatically...")
+            try:
+                base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+                from model_training import load_data, preprocess_and_split, train_and_evaluate_models, save_model
+                data_path = os.path.join(base_dir, "data", "Crop_recommendation.csv")
+                model_dir = os.path.join(base_dir, "models")
+                
+                df = load_data(data_path)
+                X_train, X_test, y_train, y_test, _ = preprocess_and_split(df)
+                _, _, best_pipeline = train_and_evaluate_models(X_train, X_test, y_train, y_test)
+                save_model(best_pipeline, model_dir)
+            except Exception as e:
+                raise FileNotFoundError(
+                    f"Model file not found at: {self.model_path} and auto-training failed: {str(e)}. "
+                    "Please run model training manually using 'python src/model_training.py'."
+                )
         try:
             with open(self.model_path, 'rb') as f:
                 self.model = pickle.load(f)
