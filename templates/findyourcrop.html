@@ -28,7 +28,7 @@
     <!-- CSS -->
 
     <link rel="stylesheet"
-          href="../static/css/style.css">
+          href="/static/css/style.css">
 
 </head>
 
@@ -40,7 +40,7 @@
 
     <div class="container">
 
-       <a class="navbar-brand" href="home.html">
+       <a class="navbar-brand" href="/">
 
             <svg class="logo-icon" viewBox="0 0 24 24"
                  xmlns="http://www.w3.org/2000/svg">
@@ -76,7 +76,7 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="home.html">
+                    <a class="nav-link" href="/">
 
                         Home
 
@@ -86,7 +86,7 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="about.html">
+                    <a class="nav-link" href="/about">
 
                         About
 
@@ -96,7 +96,7 @@
 
                 <li class="nav-item">
 
-                   <a class="nav-link active" href="findyourcrop.html">
+                   <a class="nav-link active" href="/findyourcrop">
 
                         Find Your Crop
 
@@ -186,7 +186,7 @@
 
         <div class="prediction-card">
 
-            <form>
+            <form action="/predict" method="POST" id="cropForm">
 
                 <div class="row">
 
@@ -199,8 +199,18 @@
                         </label>
 
                         <input type="number"
+                               name="N"
+                               id="N"
+                               step="any"
+                               min="0"
+                               max="200"
+                               required
                                class="form-control"
-                               placeholder="Enter Nitrogen value">
+                               placeholder="Enter Nitrogen value"
+                               value="{{ inputs.N if inputs else '' }}">
+                        <div class="invalid-feedback d-block text-danger small mt-1" id="error-N">
+                            {% if errors and errors.get('N') %}{{ errors.get('N') }}{% endif %}
+                        </div>
 
                     </div>
 
@@ -213,8 +223,18 @@
                         </label>
 
                         <input type="number"
+                               name="P"
+                               id="P"
+                               step="any"
+                               min="0"
+                               max="200"
+                               required
                                class="form-control"
-                               placeholder="Enter Phosphorous value">
+                               placeholder="Enter Phosphorous value"
+                               value="{{ inputs.P if inputs else '' }}">
+                        <div class="invalid-feedback d-block text-danger small mt-1" id="error-P">
+                            {% if errors and errors.get('P') %}{{ errors.get('P') }}{% endif %}
+                        </div>
 
                     </div>
 
@@ -227,8 +247,18 @@
                         </label>
 
                         <input type="number"
+                               name="K"
+                               id="K"
+                               step="any"
+                               min="0"
+                               max="300"
+                               required
                                class="form-control"
-                               placeholder="Enter Potassium value">
+                               placeholder="Enter Potassium value"
+                               value="{{ inputs.K if inputs else '' }}">
+                        <div class="invalid-feedback d-block text-danger small mt-1" id="error-K">
+                            {% if errors and errors.get('K') %}{{ errors.get('K') }}{% endif %}
+                        </div>
 
                     </div>
 
@@ -241,8 +271,18 @@
                         </label>
 
                         <input type="number"
+                               name="temperature"
+                               id="temperature"
+                               step="any"
+                               min="-10"
+                               max="60"
+                               required
                                class="form-control"
-                               placeholder="Enter Temperature">
+                               placeholder="Enter Temperature"
+                               value="{{ inputs.temperature if inputs else '' }}">
+                        <div class="invalid-feedback d-block text-danger small mt-1" id="error-temperature">
+                            {% if errors and errors.get('temperature') %}{{ errors.get('temperature') }}{% endif %}
+                        </div>
 
                     </div>
 
@@ -255,8 +295,18 @@
                         </label>
 
                         <input type="number"
+                               name="humidity"
+                               id="humidity"
+                               step="any"
+                               min="0"
+                               max="100"
+                               required
                                class="form-control"
-                               placeholder="Enter Humidity">
+                               placeholder="Enter Humidity"
+                               value="{{ inputs.humidity if inputs else '' }}">
+                        <div class="invalid-feedback d-block text-danger small mt-1" id="error-humidity">
+                            {% if errors and errors.get('humidity') %}{{ errors.get('humidity') }}{% endif %}
+                        </div>
 
                     </div>
 
@@ -269,8 +319,18 @@
                         </label>
 
                         <input type="number"
+                               name="ph"
+                               id="ph"
+                               step="any"
+                               min="0"
+                               max="14"
+                               required
                                class="form-control"
-                               placeholder="Enter pH">
+                               placeholder="Enter pH"
+                               value="{{ inputs.ph if inputs else '' }}">
+                        <div class="invalid-feedback d-block text-danger small mt-1" id="error-ph">
+                            {% if errors and errors.get('ph') %}{{ errors.get('ph') }}{% endif %}
+                        </div>
 
                     </div>
 
@@ -283,8 +343,18 @@
                         </label>
 
                         <input type="number"
+                               name="rainfall"
+                               id="rainfall"
+                               step="any"
+                               min="0"
+                               max="1000"
+                               required
                                class="form-control"
-                               placeholder="Enter Rainfall">
+                               placeholder="Enter Rainfall"
+                               value="{{ inputs.rainfall if inputs else '' }}">
+                        <div class="invalid-feedback d-block text-danger small mt-1" id="error-rainfall">
+                            {% if errors and errors.get('rainfall') %}{{ errors.get('rainfall') }}{% endif %}
+                        </div>
 
                     </div>
 
@@ -311,7 +381,7 @@
 
 <!-- ================= PREDICTION RESULT ================= -->
 
-<section class="prediction-result">
+<section class="prediction-result {% if not prediction %}d-none{% endif %}" id="prediction-result-section">
 
     <div class="container">
 
@@ -321,7 +391,7 @@
 
             <p>
 
-                Your recommended crop will appear here after prediction.
+                Your recommended crop is displayed below.
 
             </p>
 
@@ -335,22 +405,23 @@
 
             </div>
 
-            <h3>
+            <h3 id="result-crop" class="text-capitalize">
 
-                Rice
+                {{ prediction if prediction else '' }}
 
             </h3>
 
-            <span class="confidence">
+            <span class="confidence text-success font-weight-bold" id="result-confidence">
 
-                Confidence : 96%
+                {% if confidence %}Confidence : {{ "%.2f"|format(confidence * 100) }}%{% endif %}
 
             </span>
 
-            <p>
+            <p id="result-description">
 
-                Rice is the most suitable crop based on the soil nutrients,
-                rainfall, humidity and temperature provided.
+                {% if prediction %}
+                <strong class="text-capitalize">{{ prediction }}</strong> is the most suitable crop based on the soil nutrients, rainfall, humidity and temperature provided.
+                {% endif %}
 
             </p>
 
@@ -358,25 +429,25 @@
 
                 <div class="detail-box">
 
-                    <h5>Nitrogen</h5>
+                    <h5>N - P - K</h5>
 
-                    <span>High</span>
-
-                </div>
-
-                <div class="detail-box">
-
-                    <h5>Rainfall</h5>
-
-                    <span>Suitable</span>
+                    <span id="result-npk">{% if inputs %}{{ inputs.N }} - {{ inputs.P }} - {{ inputs.K }}{% endif %}</span>
 
                 </div>
 
                 <div class="detail-box">
 
-                    <h5>Temperature</h5>
+                    <h5>Temp / Humidity</h5>
 
-                    <span>Optimal</span>
+                    <span id="result-temphumidity">{% if inputs %}{{ inputs.temperature }}°C / {{ inputs.humidity }}%{% endif %}</span>
+
+                </div>
+
+                <div class="detail-box">
+
+                    <h5>pH / Rainfall</h5>
+
+                    <span id="result-phrainfall">{% if inputs %}{{ inputs.ph }} / {{ inputs.rainfall }}mm{% endif %}</span>
 
                 </div>
 
@@ -710,11 +781,11 @@
 
                     <ul>
 
-                        <li><a href="home.html">Home</a></li>
+                        <li><a href="/">Home</a></li>
 
-                        <li><a href="about.html">About</a></li>
+                        <li><a href="/about">About</a></li>
 
-                        <li><a href="findyourcrop.html">Find Your Crop</a></li>
+                        <li><a href="/findyourcrop">Find Your Crop</a></li>
 
                     </ul>
 
@@ -766,7 +837,7 @@
 
 <!-- JavaScript -->
 
-<script src="../static/js/script.js"></script>
+<script src="/static/js/script.js"></script>
 
 </body>
 

@@ -19,9 +19,20 @@ def get_predictor():
     return predictor
 
 @app.route('/')
+@app.route('/home')
 def home():
-    """Render the main crop input form page."""
-    return render_template('index.html', inputs=None, errors=None)
+    """Render the main home page."""
+    return render_template('home.html')
+
+@app.route('/about')
+def about():
+    """Render the about page."""
+    return render_template('about.html')
+
+@app.route('/findyourcrop')
+def findyourcrop():
+    """Render the crop prediction form page."""
+    return render_template('findyourcrop.html', inputs=None, errors=None, prediction=None, confidence=None)
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -51,7 +62,7 @@ def predict():
         if is_json:
             return jsonify({"status": "error", "message": error_msg}), 500
         else:
-            return render_template('index.html', inputs=data, errors={"system": error_msg})
+            return render_template('findyourcrop.html', inputs=data, errors={"system": error_msg})
 
     features, errors = pred_engine.validate_inputs(n, p, k, temperature, humidity, ph, rainfall)
 
@@ -59,7 +70,7 @@ def predict():
         if is_json:
             return jsonify({"status": "fail", "errors": errors}), 400
         else:
-            return render_template('index.html', inputs=data, errors=errors)
+            return render_template('findyourcrop.html', inputs=data, errors=errors)
 
     try:
         # Run prediction
@@ -67,6 +78,9 @@ def predict():
         
         # Get crop probabilities for detail/confidence display
         probabilities = pred_engine.predict_proba(features)
+        
+        # Compute confidence score
+        confidence = probabilities[0][1] if probabilities else 1.0
         
         if is_json:
             return jsonify({
@@ -85,10 +99,11 @@ def predict():
             })
         else:
             return render_template(
-                'result.html',
+                'findyourcrop.html',
                 prediction=prediction,
-                probabilities=probabilities,
-                inputs=data
+                confidence=confidence,
+                inputs=data,
+                errors=None
             )
             
     except Exception as e:
@@ -96,7 +111,7 @@ def predict():
         if is_json:
             return jsonify({"status": "error", "message": error_msg}), 500
         else:
-            return render_template('index.html', inputs=data, errors={"system": error_msg})
+            return render_template('findyourcrop.html', inputs=data, errors={"system": error_msg})
 
 @app.errorhandler(404)
 def not_found(e):
