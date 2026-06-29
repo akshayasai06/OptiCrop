@@ -1,4 +1,4 @@
-<img width="2850" height="1558" alt="landing-page" src="https://github.com/user-attachments/assets/c955a268-9d02-413a-b84a-1494206835df" />
+<img width="2850" height="1558" alt="landing-page" src="https://github.com/user-attachments/assets/7e7b5ce8-968e-4d42-9c4f-c4f7e03d03ad" />
 
 ---
 
@@ -189,16 +189,19 @@ The Flask server supports raw JSON requests in addition to standard form submiss
 ### Landing Page
 The home landing page provides an introduction to the optimization engine, features of the platform, and structural parameters examined.
 
-<img width="2850" height="1558" alt="landing-page" src="https://github.com/user-attachments/assets/2572ddc8-8bf7-471a-9d7d-856f40efc9af" />
+<img width="2850" height="1558" alt="landing-page" src="https://github.com/user-attachments/assets/1391420c-fcb6-4217-89d7-638e32a3d655" />
 
-<img width="2850" height="1554" alt="landing-02" src="https://github.com/user-attachments/assets/a0364145-520b-4714-b9a8-883451a2b74b" />
+
+<img width="2850" height="1554" alt="landing-02" src="https://github.com/user-attachments/assets/b8860c11-d56d-466c-a9e0-57a6ffb7eae3" />
+
 
 ---
 
 ### About Page
 The about page highlights the project vision and mission.
 
-<img width="2846" height="1558" alt="about" src="https://github.com/user-attachments/assets/b91a2f93-0a78-4ceb-b72b-611eaf355f44" />
+<img width="2846" height="1558" alt="about" src="https://github.com/user-attachments/assets/e2cc4270-a77f-4adc-a548-a22955ca5f1b" />
+
 
 ---
 
@@ -206,18 +209,23 @@ The about page highlights the project vision and mission.
 ### Crop Recommendation Form
 The input dashboard on the Find Your Crop page collects agricultural and weather conditions.
 
-<img width="2844" height="1558" alt="crop-recommend" src="https://github.com/user-attachments/assets/e1589d7d-b61a-4a08-8d68-f807ed7ff5cc" />
+<img width="2844" height="1558" alt="crop-recommend" src="https://github.com/user-attachments/assets/b849dbb1-11e4-4305-adc6-289f26dc06a6" />
+
 
 ---
 
 ### Prediction Result
 The results page displays the classification output and confidence values returned from the model.
 
-<img width="2844" height="1560" alt="prediction-result" src="https://github.com/user-attachments/assets/1e756140-d62c-4821-81e7-78106b41ed74" />
+<img width="2844" height="1560" alt="prediction-result" src="https://github.com/user-attachments/assets/568e7f77-e7b1-490e-8561-50d5d9be1fa6" />
+
 
 
 ---
 
 ## Model Training and Evaluation
 The classification logic trains four models (Logistic Regression, KNN, Decision Trees, and Random Forests). The results show that the Random Forest model achieves the highest test set accuracy (99.55%) on the dataset.
-<!-- SCREENSHOT 7: Model Performance Comparison plot and classifier evaluation metrics -->
+
+<img width="1632" height="650" alt="model_training" src="https://github.com/user-attachments/assets/42f5e04c-fa44-4d63-bf91-20c2e886df3a" />
+
+---
