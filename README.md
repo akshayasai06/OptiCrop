@@ -6,6 +6,8 @@
 
 <div align="center">
 
+[![Render Deployment](https://img.shields.io/badge/Render-Deployed-brightgreen?style=for-the-badge&logo=render)](https://opticrop-kjue.onrender.com/)
+
 ### Team Details
 **JAMPANI AKSHAYA SAI** (Roll No: AP24110011916)  
 **Om Keerthana Bhavani** (Roll No: AP24110011229)  
