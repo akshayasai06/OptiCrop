@@ -1,3 +1,7 @@
+<img width="2850" height="1558" alt="landing-page" src="https://github.com/user-attachments/assets/c955a268-9d02-413a-b84a-1494206835df" />
+
+---
+
 # OptiCrop - Smart Agricultural Crop Recommendation System
 
 <div align="center">
@@ -172,21 +176,33 @@ The Flask server supports raw JSON requests in addition to standard form submiss
 
 ### Landing Page
 The home landing page provides an introduction to the optimization engine, features of the platform, and structural parameters examined.
-<!-- SCREENSHOT 1: Landing Page Hero Section UI Screenshot -->
-<!-- SCREENSHOT 2: Landing Page Features and Agricultural Parameters UI Screenshot -->
+
+<img width="2850" height="1558" alt="landing-page" src="https://github.com/user-attachments/assets/2572ddc8-8bf7-471a-9d7d-856f40efc9af" />
+
+<img width="2850" height="1554" alt="landing-02" src="https://github.com/user-attachments/assets/a0364145-520b-4714-b9a8-883451a2b74b" />
+
+---
 
 ### About Page
-The about page highlights the team details, project vision and mission, and the technology stack utilized in building the tool.
-<!-- SCREENSHOT 3: About Page Overview UI Screenshot -->
-<!-- SCREENSHOT 4: About Page Technology Stack and Benefits UI Screenshot -->
+The about page highlights the project vision and mission.
+
+<img width="2846" height="1558" alt="about" src="https://github.com/user-attachments/assets/b91a2f93-0a78-4ceb-b72b-611eaf355f44" />
+
+---
+
 
 ### Crop Recommendation Form
 The input dashboard on the Find Your Crop page collects agricultural and weather conditions.
-<!-- SCREENSHOT 5: Crop Recommendation Form input interface in findyourcrop.html -->
+
+<img width="2844" height="1558" alt="crop-recommend" src="https://github.com/user-attachments/assets/e1589d7d-b61a-4a08-8d68-f807ed7ff5cc" />
+
+---
 
 ### Prediction Result
 The results page displays the classification output and confidence values returned from the model.
-<!-- SCREENSHOT 6: Prediction Result Card displaying recommended crop and confidence score -->
+
+<img width="2844" height="1560" alt="prediction-result" src="https://github.com/user-attachments/assets/1e756140-d62c-4821-81e7-78106b41ed74" />
+
 
 ---
 
