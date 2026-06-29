@@ -10,7 +10,7 @@
 **JAMPANI AKSHAYA SAI** (Roll No: AP24110011916)  
 **Om Keerthana Bhavani** (Roll No: AP24110011229)  
 **Rajan Jaiswal** (Roll No: AP24110011202)  
-**Sushmanth Chowdary** (Roll No: AP24110011XX)  
+**Vejendla Sushmanth chowdary** (Roll No: AP24110010435)  
 
 </div>
 
