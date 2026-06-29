@@ -91,7 +91,7 @@ body{
 
     position:relative;
 
-    background:url("../images/hero-bg.jpg");
+    background:url("../images/hero-bg.webp");
 
     background-size:cover;
     background-position:center;
@@ -842,7 +842,7 @@ body{
     background:
         linear-gradient(rgba(0,0,0,.72),
                         rgba(0,0,0,.72)),
-        url("../images/about-bg.jpg");
+        url("../images/about-bg.webp");
 
     background-size:cover;
 
@@ -1269,7 +1269,7 @@ body{
 
     min-height:100vh;
 
-    background:url("../images/find-crop-bg.jpg") center center/cover no-repeat;
+    background:url("../images/find-crop-bg.webp") center center/cover no-repeat;
 
     display:flex;
 
