@@ -1,0 +1,55 @@
+{
+    "scenarios": {
+        "1": {
+            "name": "Homepage Load Test",
+            "users": 1,
+            "duration_sec": 0.046279191970825195,
+            "avg_latency_sec": 0.0009064245223999024,
+            "max_latency_sec": 0.0014162063598632812,
+            "throughput_req_sec": 1080.399157174577,
+            "error_rate_percent": 0.0,
+            "errors": 0,
+            "total_reqs": 50
+        },
+        "2": {
+            "name": "Predict API Load Test",
+            "users": 10,
+            "duration_sec": 1.8754472732543945,
+            "avg_latency_sec": 0.18372169971466065,
+            "max_latency_sec": 0.8784224987030029,
+            "throughput_req_sec": 53.32061392825706,
+            "error_rate_percent": 0.0,
+            "errors": 0,
+            "total_reqs": 100
+        },
+        "3": {
+            "name": "Predict API Stress Test",
+            "users": 50,
+            "duration_sec": 6.180586814880371,
+            "avg_latency_sec": 0.5879306011199951,
+            "max_latency_sec": 0.6960721015930176,
+            "throughput_req_sec": 80.89846724524617,
+            "error_rate_percent": 0.0,
+            "errors": 0,
+            "total_reqs": 500
+        },
+        "4": {
+            "name": "Predict API Spike Test",
+            "users": 100,
+            "duration_sec": 11.990592002868652,
+            "avg_latency_sec": 1.1410912384986878,
+            "max_latency_sec": 1.2908565998077393,
+            "throughput_req_sec": 83.39871790823656,
+            "error_rate_percent": 0.0,
+            "errors": 0,
+            "total_reqs": 1000
+        }
+    },
+    "overall": {
+        "avg_latency_sec": 0.8808933516704675,
+        "max_latency_sec": 1.2908565998077393,
+        "error_rate_percent": 0.0,
+        "max_cpu_percent": 76.2,
+        "max_mem_percent": 1.6
+    }
+}
